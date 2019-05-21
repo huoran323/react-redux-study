@@ -1,25 +1,36 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-function App(props) {
-  return (
-    <div className="container">
-      <h1 className="jumbotron-heading text-center">{props.value}</h1>
-      <p className="text-center">
-        <button onClick={props.onIncrement} className="btn btn-primary mr-2">
-          Increase
-        </button>
-        <button onClick={props.onDecrement} className="btn btn-danger my-2">
-          Decrease
-        </button>
-      </p>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className="container">
+        <h1 className="jumbotron-heading text-center">{this.props.counter}</h1>
+
+        <p className="text-center">
+          <button
+            onClick={this.props.onIncrement}
+            className="btn btn-primary mr-2"
+          >
+            Increase
+          </button>
+          <button
+            onClick={this.props.onDecrement}
+            className="btn btn-danger my-2"
+          >
+            Decrease
+          </button>
+        </p>
+      </div>
+    );
+  }
 }
 
-App.propTypes = {
-  value: PropTypes.number.isRequired,
-  onIncrement: PropTypes.func.isRequired
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    counter: state
+  };
 };
 
-export default App;
+export default connect(mapStateToProps)(App);
