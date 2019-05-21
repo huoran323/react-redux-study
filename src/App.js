@@ -5,7 +5,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1 className="jumbotron-heading text-center">{this.props.counter}</h1>
+        <h1 className="jumbotron-heading text-center">{this.props.counter} </h1>
 
         <p className="text-center">
           <button
