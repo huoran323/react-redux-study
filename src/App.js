@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 class App extends React.Component {
   render() {
@@ -29,8 +30,12 @@ class App extends React.Component {
 const mapStateToProps = state => {
   console.log(state);
   return {
-    counter: state
+    counter: state.counter
   };
+};
+
+App.propTypes = {
+  counter: PropTypes.number.isRequired
 };
 
 export default connect(mapStateToProps)(App);
