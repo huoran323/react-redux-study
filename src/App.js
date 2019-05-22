@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 // import { increment, decrement } from "./actions";
 import * as types from "./actions";
 import { bindActionCreators } from "redux";
+import User from "./components/User";
 
 const mapStateToProps = state => {
   console.log(state);
@@ -61,6 +62,7 @@ class App extends React.Component {
           <button onClick={() => decrement()} className="btn btn-danger my-2">
             Decrease
           </button>
+          <User />
         </p>
       </div>
     );
