@@ -11,6 +11,8 @@ import rootReducer from "./reducers";
 import { increment, decrement } from "./actions";
 // 第三方中间件插件
 import promise from "redux-promise-middleware";
+// redux-devtool插件
+import { composeWithDevTools } from "redux-devtools-extension";
 
 import { Provider } from "react-redux";
 
@@ -34,7 +36,10 @@ import { Provider } from "react-redux";
 // };
 
 // const store = createStore(rootReducer, applyMiddleware(logger, error));
-const store = createStore(rootReducer, applyMiddleware(logger, thunk, promise));
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(logger, thunk, promise))
+);
 
 ReactDOM.render(
   <Provider store={store}>
