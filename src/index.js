@@ -9,6 +9,8 @@ import logger from "redux-logger";
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 import { increment, decrement } from "./actions";
+// 第三方中间件插件
+import promise from "redux-promise-middleware";
 
 import { Provider } from "react-redux";
 
@@ -32,7 +34,7 @@ import { Provider } from "react-redux";
 // };
 
 // const store = createStore(rootReducer, applyMiddleware(logger, error));
-const store = createStore(rootReducer, applyMiddleware(logger, thunk));
+const store = createStore(rootReducer, applyMiddleware(logger, thunk, promise));
 
 ReactDOM.render(
   <Provider store={store}>
